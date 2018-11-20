@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Uzhgorod'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -144,12 +144,12 @@ LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Security Deployment Vars (for use in dev environment remarked it)
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_BROWSER_XSS_FILTER = True
+#SECURE_CONTENT_TYPE_NOSNIFF = True
+#SECURE_BROWSER_XSS_FILTER = True
 #SESSION_COOKIE_SECURE = True  # Disable it for development environment
 #SECURE_SSL_REDIRECT = True  # Disable it for development environment
-X_FRAME_OPTIONS = 'DENY'
-CSRF_COOKIE_SECURE = True
+#X_FRAME_OPTIONS = 'DENY'
+#CSRF_COOKIE_SECURE = True
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
