@@ -3,3 +3,6 @@
 
 #Database
 *.sqlite3
+
+# Python cache
+./locallibrary/__pycache__

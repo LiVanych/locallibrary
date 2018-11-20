@@ -20,10 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'vp@wr8c2l-kdf^-4ci*+7s%2##z%j=22re@*b@rdezz9a$-szb'
+#SECRET_KEY = 'vp@wr8c2l-kdf^-4ci*+7s%2##z%j=22re@*b@rdezz9a$-szb'
+
+import os
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'vp@wr8c2l-kdf^-4ci*+7s%2##z%j=22re@*b@rdezz9a$-szb')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = []
 
@@ -31,7 +36,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,3 +133,12 @@ LOGIN_REDIRECT_URL = '/'
 
 # Password Reset URL is sending into console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Security Deployment Vars
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+X_FRAME_OPTIONS = 'DENY'
+CSRF_COOKIE_SECURE = True
+
