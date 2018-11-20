@@ -5,8 +5,9 @@
 *.sqlite3
 
 # Python cache
-
-locallibrary/__pycache__/*.pyc
-tests/__pycache__/*.pyc
-models/__pycache__/*.pyc
-migrations/__pycache__/*.pyc
+*.pyc
+*.pyo
+#locallibrary/__pycache__/*.pyc
+#tests/__pycache__/*.pyc
+#models/__pycache__/*.pyc
+#migrations/__pycache__/*.pyc
