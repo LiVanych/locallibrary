@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+{% block title %}
+  <title>Books Local Library - main page</title>
+  {% endblock %}
+{% block content %}
+  <h1>Books Local Library</h1>
+  <p>Welcome to LocalLibrary, a website developed by
+    <em>Mozilla Developer Network</em>!
+  </p>
+  <h2>Dynamic content</h2>
+  <p>The library has the following record counts:</p>
+  <ul class="summary-list">
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Genres:</strong> {{ num_genres }}</li>
+    <li><strong>Languages:</strong> {{ num_languages }} </li>
+    <li><strong>Fantasy Genres:</strong> {{ num_genres_fantasy }} </li>
+    <li><strong>Books with title "...Machine..":</strong>
+      {{ num_books_title_with_Machine }}
+    </li>
+  </ul>
+  <p>You have visited this page {{ num_visits }}
+    {% if num_visits == 1 %}
+    time
+    {% else %}
+    times
+    {% endif %}.
+  </p>
+  <!-- Add image as static file -->
+  {% load static %}
+  <h2>Static content</h2>
+  <img src="{% static 'images/local_library_model_uml.png' %}"
+  alt="UML diagram" style="width:555px;height:540px;">
+{% endblock %}
