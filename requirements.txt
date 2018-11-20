@@ -1,6 +1,7 @@
-dj-database-url
-Django
-django-heroku
+django
 gunicorn
-psycopg2-binary
+django-heroku
+dj-database-url
+gunicorn
+psycopg2
 whitenoise
