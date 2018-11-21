@@ -153,6 +153,13 @@ SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
 CSRF_COOKIE_SECURE = True
 
+# Options bellow can instruct modern browsers to refuse to connect to your domain name
+# via an insecure connection (for a given period of time) by setting the
+# “Strict-Transport-Security” header.
+SECURE_HSTS_SECONDS = 3600   # if it didn't broke anything set 31536000 seconds
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
 # Heroku: Update database configuration from $DATABASE_URL.
 #import dj_database_url
 #db_from_env = dj_database_url.config(conn_max_age=500)
