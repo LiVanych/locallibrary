@@ -1,13 +1,5 @@
-# Text backup files
-*.bak
-
 #Database
 *.sqlite3
 
 # Python cache
 *.pyc
-*.pyo
-#locallibrary/__pycache__/*.pyc
-#tests/__pycache__/*.pyc
-#models/__pycache__/*.pyc
-#migrations/__pycache__/*.pyc
