@@ -143,11 +143,13 @@ LOGIN_REDIRECT_URL = '/'
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Security Deployment Vars (for use in dev environment remarked it)
+# Only HTTPS ACCESS TO APP
+SECURE_SSL_REDIRECT = True  # Disable it for development environment
+SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO', 'https')  # Disable it for development environment
+
+SESSION_COOKIE_SECURE = True  # Disable it for development environment
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-SESSION_COOKIE_SECURE = True  # Disable it for development environment
-SECURE_SSL_REDIRECT = True  # Disable it for development environment
-SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO', 'https')
 X_FRAME_OPTIONS = 'DENY'
 CSRF_COOKIE_SECURE = True
 
