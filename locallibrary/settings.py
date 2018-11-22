@@ -141,6 +141,30 @@ LOGIN_REDIRECT_URL = '/'
 
 # Password Reset URL is sending into console
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+### EMAIL CONFIGURATION
+#see: docs.djangoproject.com/en/dev/ref/settings/#email-backend
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+#EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'mail.ardinvest.net'
+
+#password used to login
+#EMAIL_HOST_PASSWORD = 'password'
+EMAIL_HOST_PASSWORD = bool(os.environ.get('EMAIL_HOST_PASSWORD', True))
+
+#email address used to login
+EMAIL_HOST_USER = 'janx@ardinvest.net'
+
+#EMAIL_PORT = 25
+EMAIL_PORT = 587
+
+EMAIL_SUBJECT_PREFIX = 'Books Local Library Notification'
+
+EMAIL_USE_TLS = True
+
+SERVER_EMAIL = EMAIL_HOST_USER
+
+### END EMAIL CONFIGURATION
 
 # Security Deployment Vars (for use in dev environment remarked it)
 # Only HTTPS ACCESS TO APP

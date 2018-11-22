@@ -4,3 +4,4 @@
 # Python cache
 *.*.pyc
 *.pyc
+locallibrary/__pycache__/settings.cpython-36.pyc
