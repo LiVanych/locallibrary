@@ -16,18 +16,13 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'vp@wr8c2l-kdf^-4ci*+7s%2##z%j=22re@*b@rdezz9a$-szb'
-
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'vp@wr8c2l-kdf^-4ci*+7s%2##z%j=22re@*b@rdezz9a$-szb')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = []
@@ -47,7 +42,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -126,74 +120,38 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 STATIC_URL = '/static/'
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 
-# Password Reset URL is sending into console
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ### EMAIL CONFIGURATION
-#see: docs.djangoproject.com/en/dev/ref/settings/#email-backend
-# Heroku SMTP Relay Sendgrid Configuration
-# heroku addons:create sendgrid:starter
-# $ heroku config:get SENDGRID_USERNAME
-# user@heroku.com
-# $ heroku config:get SENDGRID_PASSWORD
-# password
-# $ heroku config:set EMAIL_HOST_PASSWORD='password'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-#EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST = 'smtp.sendgrid.net'
-
-#password used to login
-#EMAIL_HOST_PASSWORD = 'password'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
-
-#email address used to login
 EMAIL_HOST_USER = 'app116300353@heroku.com'
-
-#EMAIL_PORT = 25
 EMAIL_PORT = 587
-
 EMAIL_SUBJECT_PREFIX = 'Books Local Library Notification'
-
 EMAIL_USE_TLS = True
-
 SERVER_EMAIL = EMAIL_HOST_USER
-
 ### END EMAIL CONFIGURATION
 
 # Security Deployment Vars (for use in dev environment remarked it)
 # Only HTTPS ACCESS TO APP
 SECURE_SSL_REDIRECT = True  # Disable it for development environment
 SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO', 'https')  # Disable it for development environment
-
 SESSION_COOKIE_SECURE = True  # Disable it for development environment
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
 CSRF_COOKIE_SECURE = True
-
 # Options bellow can instruct modern browsers to refuse to connect to your domain name
 # via an insecure connection (for a given period of time) by setting the
 # “Strict-Transport-Security” header.
 SECURE_HSTS_SECONDS = 3600   # if it didn't broke anything set 31536000 seconds
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
-
-# Heroku: Update database configuration from $DATABASE_URL.
-#import dj_database_url
-#db_from_env = dj_database_url.config(conn_max_age=500)
-#DATABASES['default'].update(db_from_env)
 
 django_heroku.settings(locals())
