@@ -150,7 +150,7 @@ EMAIL_HOST = 'mail.ardinvest.net'
 
 #password used to login
 #EMAIL_HOST_PASSWORD = 'password'
-EMAIL_HOST_PASSWORD = bool(os.environ.get('EMAIL_HOST_PASSWORD', True))
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 
 #email address used to login
 EMAIL_HOST_USER = 'janx@ardinvest.net'
