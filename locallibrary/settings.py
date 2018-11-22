@@ -143,6 +143,13 @@ LOGIN_REDIRECT_URL = '/'
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ### EMAIL CONFIGURATION
 #see: docs.djangoproject.com/en/dev/ref/settings/#email-backend
+# Heroku SMTP Relay Sendgrid Configuration
+# heroku addons:create sendgrid:starter
+# $ heroku config:get SENDGRID_USERNAME
+# user@heroku.com
+# $ heroku config:get SENDGRID_PASSWORD
+# password
+# $ heroku config:set EMAIL_HOST_PASSWORD='password'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 #EMAIL_HOST = 'smtp.gmail.com'
