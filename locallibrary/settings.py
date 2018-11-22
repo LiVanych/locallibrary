@@ -146,14 +146,14 @@ LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 #EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST = 'mail.ardinvest.net'
+EMAIL_HOST = 'smtp.sendgrid.net'
 
 #password used to login
 #EMAIL_HOST_PASSWORD = 'password'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 
 #email address used to login
-EMAIL_HOST_USER = 'janx@ardinvest.net'
+EMAIL_HOST_USER = 'app116300353@heroku.com'
 
 #EMAIL_PORT = 25
 EMAIL_PORT = 587
