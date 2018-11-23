@@ -1,4 +1,4 @@
-# Books Local Library
+# Books LocalLibrary Django App
 
 This Django app developed by Mozilla Developer Network!
 
