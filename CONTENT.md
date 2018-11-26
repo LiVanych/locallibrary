@@ -269,4 +269,3 @@
 11.3.3. Enforcing SSL/HTTPS
 
 11.3.4. Host header validation
-
